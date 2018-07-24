@@ -1,7 +1,33 @@
 ---
-- name: Install multiple packages
+- name: Install Chocolatey Packages
   win_chocolatey:
-    name: '{{ item }}'
+    name: "{{ package_name }}"
+    params: "{{ parameters }}"
+    state: latest
+  when: ansible_distribution == "Microsoft Windows Server 2012 R2 Standard"
+  tags:
+    - chocolatey
+    - ssh
+
+- name: Enable Services
+  win_service:
+    name: "{{ service_name }}"
+    state: started
+    start_mode: auto
+  when: ansible_distribution == "Microsoft Windows Server 2012 R2 Standard"
+  tags:
+    - ssh
+
+- name: Enable service firewall rule
+  win_firewall_rule:
+    name: "Rule for {{ service_name }}"
+    program: "{{ service_name }}"
+    localport: "{{ local_port }}"
     state: present
-  with_items:
-  - "{{ package_name }}"
+    protocol: "{{ protocol_name }}"
+    action: allow
+    direction: in
+  when: ansible_distribution == "Microsoft Windows Server 2012 R2 Standard"
+  tags:
+    - ssh
+

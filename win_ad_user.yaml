@@ -1,0 +1,4 @@
+- name: Setup Domain User
+  hosts: windows
+  roles:
+    - {name: win_ad_user, tags: win_ad_user}

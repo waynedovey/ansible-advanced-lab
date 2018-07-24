@@ -12,9 +12,13 @@
 #- win_updates:
 #  register: update_result
 
-- win_reboot:
-    reboot_timeout: 3600
+#- win_reboot:
+#    reboot_timeout: 3600
 
 - name: Prints out the domain list available
-  win_command: 'nltest /dclist:"{{ ad_domain_name }}"'
+  win_shell: 'nltest /dclist:"{{ ad_domain_name }}"'
   register: domain_out
+
+- debug:
+    var: domain_out
+    verbosity: 2

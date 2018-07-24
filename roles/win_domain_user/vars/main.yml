@@ -1,0 +1,6 @@
+---
+user_info:
+  - { name: 'james', firstname: 'James', surname: 'Jockey', password: 'redhat@123', email: "james@ad1.{{ GUID }}.example.opentlc.com", group: 'dev', group_scope: 'domainlocal' }
+  - { name: 'bill', firstname: 'Bill', surname: 'Gates', password: 'redhat@123', email: "bill@ad1.{{ GUID }}.example.opentlc.com", group: 'dev', group_scope: 'domainlocal' }
+  - { name: 'mickey', firstname: 'Mickey', surname: 'Mouse', password: 'redhat@123', email: "mickey@ad1.{{ GUID }}.example.opentlc.com", group: 'qa', group_scope: 'domainlocal' }
+  - { name: 'donald', firstname: 'Donald', surname: 'Duck', password: 'redhat@123', email: "donald@ad1.{{ GUID }}.example.opentlc.com", group: 'qa', group_scope: 'domainlocal' }

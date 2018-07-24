@@ -1,0 +1,5 @@
+---
+- name: Create Users
+  hosts: windows
+  roles:
+    - {name: win_domain_user, tags: win_domain_user}
