@@ -1,0 +1,20 @@
+---
+- name: Install AD-Domain-Services feature
+  win_feature:
+    name:
+    - AD-Domain-Services
+    state: present
+
+- win_domain:
+    dns_domain_name: "{{ ad_domain_name }}"
+    safe_mode_password: "{{ ansible_password }}"
+
+#- win_updates:
+#  register: update_result
+
+- win_reboot:
+    reboot_timeout: 3600
+
+- name: Prints out the domain list available
+  win_command: 'nltest /dclist:"{{ ad_domain_name }}"'
+  register: domain_out

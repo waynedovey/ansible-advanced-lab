@@ -1,0 +1,7 @@
+---
+# Windows PB
+
+- name: windows ad install 
+  hosts: windows
+  roles:
+    - {name: win_ad_install, tags: win_ad_install}
