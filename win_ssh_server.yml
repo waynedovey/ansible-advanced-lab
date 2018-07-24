@@ -1,6 +1,4 @@
 - name: Setup SSH on Windows host
   hosts: windows
-#  vars_files:
-#    - roles/win_service_config/vars/ssh_var.yml
   roles:
     - {name: win_service_config, tags: win_service_config}
